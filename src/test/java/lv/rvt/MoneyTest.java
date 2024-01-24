@@ -40,6 +40,38 @@ public class MoneyTest {
 
         assertEquals(0, macins3.euros()); assertEquals(0, macins3.cents());
         assertEquals(0, macins4.euros()); assertEquals(90, macins4.cents());
+    }
 
+    @Test
+    public void testEquals() {
+        Money macins1 = new Money(5, 10);
+        Money macins2 = new Money(6, 0);
+        Money macins3 = new Money(6, 0);
+
+        assertFalse(macins1.equals(macins2));
+        assertTrue(macins2.equals(macins3));
+
+        
+
+    }
+
+    @Test
+    public void testEqualEuros() {
+        Money macins1 = new Money(5, 10);
+        Money macins2 = new Money(6, 0);
+        Money macins3 = new Money(6, 10);
+
+        assertFalse(macins1.equalEuros(macins2));
+        assertTrue(macins2.equalEuros(macins3));
+    }
+
+    @Test
+    public void testEqualCents() {
+        Money macins1 = new Money(5, 10);
+        Money macins2 = new Money(6, 0);
+        Money macins3 = new Money(6, 10);
+
+        assertFalse(macins1.equalCents(macins2));
+        assertTrue(macins1.equalCents(macins3));
     }
 }

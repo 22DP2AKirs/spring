@@ -69,6 +69,34 @@ public class Money {
         Money jaunaisObjekts = new Money(jaunaObjektaEiro, jaunaObjektaCenti); // Izveido objektu ar apstrādātajiem datiem.
         return jaunaisObjekts;
     }
+
+    public boolean equals(Money matchObject) {
+        if (!(matchObject instanceof Money)) {
+            return false;
+        }
+        
+        // Method compares both money values.
+        if (euros == matchObject.euros && cents == matchObject.cents) {
+            return true;
+        } 
+        return false;
+    }
+
+    public boolean equalCents(Money matchObject) {
+        // Method compares cent values.
+        if (cents == matchObject.cents) {
+            return true;
+        } 
+        return false;
+    }
+
+    public boolean equalEuros(Money matchObject) {
+        // Method compares euro values.
+        if (euros == matchObject.euros) {
+            return true;
+        } 
+        return false;
+    }
 }
 
     
