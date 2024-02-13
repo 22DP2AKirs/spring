@@ -1,5 +1,6 @@
 package rvt;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import rvt.Training_Code.A;
 import rvt.Training_Code.Person;
 import rvt.Training_Code.Student;
+import rvt.Training_Code.Teacher;
 
 @Controller
 public class DefaultController {
@@ -58,13 +60,12 @@ public class DefaultController {
     @GetMapping(value = "/test")
     @ResponseBody
     public String testAction() {
-        Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+      ArrayList<Person> persons = new ArrayList<Person>();
+      persons.add(new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200));
+      persons.add(new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028"));
 
-        System.out.println("Study credits " + ollie.credits());
-        ollie.study();
-        System.out.println("Study credits "+ ollie.credits());
-
-        return ollie.toString() + ollie.credits();
+      return Person.printPersons(persons);
+      
         // <br>
     }
 }
